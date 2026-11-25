@@ -1,0 +1,6 @@
+{
+  "name": "Crimson Ledger - Fintech Receipt Studio",
+  "description": "High-fidelity fintech transaction slip generator with micro-notch geometry and multi-provider templates.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

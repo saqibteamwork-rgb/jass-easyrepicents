@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --primary: #84142D;
+    --primary-dark: #61001B;
+    --primary-container: #84142D;
+    --secondary: #E0A926;
+    --tertiary: #1B8755;
+    --surface: #FFF8F8;
+    --canvas: #F8F6F6;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--canvas);
+    color: #1E1B1C;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom ticket notch mask styling for physical slip authenticity */
+.ticket-notch-mask {
+  position: relative;
+}
+
+.ticket-notch-mask::before,
+.ticket-notch-mask::after {
+  content: '';
+  position: absolute;
+  top: var(--notch-top, 50%);
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background-color: var(--notch-bg, #ffffff);
+  z-index: 10;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.ticket-notch-mask::before {
+  left: -12px;
+}
+
+.ticket-notch-mask::after {
+  right: -12px;
+}
+
+/* Authentic slip container shadow */
+.slip-shadow {
+  box-shadow: 0 12px 36px -6px rgba(132, 20, 45, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.slip-shadow-subtle {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Print specific rules */
+@media print {
+  body {
+    background: transparent !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .slip-container-print {
+    box-shadow: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+}
